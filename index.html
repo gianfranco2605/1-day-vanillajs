@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>javaScript Drum Kit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+
+    
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1 class="ml6">
+    <span class="text-wrapper">
+      <span class="letters"><strong>JAVASCRIPT</strong> DRUM KIT</span>
+    </span>
+  </h1>
+
+  
+  
+<div class="container vh-100">
+  <div class="keys row mt-5 justify-content-around">
+    <div data-key="65" class="key col-2 col-md-3 col-lg-1">
+      <kdb>A</kdb>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="83" class="key col-2 col-md-3 col-lg-1">
+      <kdb>S</kdb>
+      <span class="sound">tombrush</span>
+    </div> 
+    <div data-key="68" class="key col-3 col-md-3 col-lg-1">
+      <kdb>D</kdb>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="70" class="key col-3 col-md-3 col-lg-1">
+      <kdb>F</kdb>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="71" class="key col-3 col-md-3 col-lg-1">
+      <kdb>G</kdb>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="72" class="key col-3 col-md-3 col-lg-1">
+      <kdb>H</kdb>
+      <span class="sound">pedals</span>
+    </div>
+    <div data-key="74" class="key col-3 col-md-3 col-lg-1">
+      <kdb>J</kdb>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="75" class="key col-3 col-md-3 col-lg-1">
+      <kdb>K</kdb>
+      <span class="sound">brush</span>
+    </div>
+    <div data-key="76" class="key col-3 col-md-3 col-lg-1">
+      <kdb>L</kdb>
+      <span class="sound">sticks</span>
+    </div>
+  </div>
+  <p class="text-center ">@by Gianfranco</p>
+</div>
+
+
+
+  <audio data-key="65" src="sounds/clap.wav"></audio>
+  <audio data-key="83" src="sounds/tombrush.wav"></audio>
+  <audio data-key="68" src="sounds/kick.wav"></audio>
+  <audio data-key="70" src="sounds/openhat.wav"></audio>
+  <audio data-key="71" src="sounds/open.wav"></audio>
+  <audio data-key="72" src="sounds/pedals.wav"></audio>
+  <audio data-key="74" src="sounds/ride.wav"></audio>
+  <audio data-key="75" src="sounds/brush.wav"></audio>
+  <audio data-key="76" src="sounds/sticks.wav"></audio>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+  <script>
+    function playSound(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+        if(!audio) return;//stop function 
+
+        audio.currentTime = 0; //rewind to the start
+
+        audio.play();
+
+        key.classList.add("playing");
+};
+    function removeTransition() {
+        if(event.propertyName !== 'transform')return;
+    
+        this.classList.remove("playing");
+
+};
+    const keys = document.querySelectorAll(".key");
+
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+    window.addEventListener('keydown', playSound);
+
+    // Wrap every letter in a span
+var textWrapper = document.querySelector('.ml6 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml6 .letter',
+    translateY: ["1.1em", 0],
+    translateZ: 0,
+    duration: 750,
+    delay: (el, i) => 50 * i
+  }).add({
+    targets: '.ml6',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 10000
+  });
+
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</body>
+</html>

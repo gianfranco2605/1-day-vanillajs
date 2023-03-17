@@ -1,0 +1,89 @@
+h1{
+    width: 100%;
+    text-align: center;
+    color: azure;
+    margin-top: 50px;
+    font-size: 5rem;
+}
+
+
+.keys span {
+
+    font-size: 1rem;
+
+}
+
+p {
+    color: aliceblue;
+}
+
+
+
+.key {
+    background-color: #0078d0;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 2rem .5rem;
+    transition: all 0.07s;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4,);
+    text-shadow: 0 0 5px black;
+    text-transform: uppercase;
+    min-width: 105px;
+  
+}
+.key:hover {
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
+  }
+
+.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 10px #ffc600;
+}
+
+
+body {
+    background: rgb(131,58,180);
+    background: linear-gradient(108deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+kdb {
+    display: block;
+    font-size: 50px;
+    color: #fff;
+    
+}
+
+.ml6 {
+    position: relative;
+    font-weight: 900;
+    font-size: 3rem;
+  }
+  
+  .ml6 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+  }
+  
+  .ml6 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
+
+
+
+
+  
+
+  
